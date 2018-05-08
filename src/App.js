@@ -9,7 +9,7 @@ export default class App extends React.Component {
         return 
         <div>
             {
-                sites.map((site) => (<Frame src={site} />))
+                sites.map((site) => { return <Frame src={site} /> })
             }    
         </div>
     }
