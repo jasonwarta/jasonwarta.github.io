@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: path.join(__dirname, 'src', 'index'),
   output: {
     filename: 'bundle.js',
@@ -21,6 +21,15 @@ module.exports = {
       query: {
         presets: ['es2015','react']
       }
+    },{
+      test: /.css$/,
+      include: [
+        path.resolve(__dirname, 'src')
+      ],
+      exclude: [
+        path.resolve(__dirname, 'node_modules'),
+      ],
+      use: [ 'style-loader', 'css-loader' ],
     }]
   },
   resolve: {

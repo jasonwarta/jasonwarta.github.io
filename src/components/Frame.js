@@ -4,15 +4,17 @@ const style = {
     iframe: {
         margin: 0,
         padding: 0,
-        paddingLeft: '100px',
         border: 'none',
-        width: '90%',
+        width: '100%',
         height: '100%'
     }
 }
 
-const Frame = (props) => (
-    <div><iframe scrolling="auto" style={style.iframe} src={props.src}></iframe></div>
-);
-
-export default Frame;
+export default function Frame(props) {
+    console.log(props);
+    return (
+        <div>
+            <iframe scrolling="auto" style={style.iframe} src={props.url}></iframe>
+        </div>
+    )
+}
