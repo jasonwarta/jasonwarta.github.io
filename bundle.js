@@ -62338,7 +62338,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var styles = {
     drawer: {
-        width: "auto"
+        container: {
+            top: "64px"
+        },
+        overlay: {
+            top: "64px"
+        }
     }
 };
 
@@ -62363,12 +62368,18 @@ var App = function (_React$Component) {
     _createClass(App, [{
         key: 'changeUrl',
         value: function changeUrl(url) {
-            this.setState({ url: url, drawerOpen: false });
+            this.closeDrawer();
+            this.setState({ url: url });
         }
     }, {
         key: 'toggleDrawer',
         value: function toggleDrawer() {
             this.setState({ drawerOpen: !this.state.drawerOpen });
+        }
+    }, {
+        key: 'closeDrawer',
+        value: function closeDrawer() {
+            this.setState({ drawerOpen: false });
         }
     }, {
         key: 'render',
@@ -62385,7 +62396,15 @@ var App = function (_React$Component) {
                 }),
                 _react2.default.createElement(
                     _materialUi.Drawer,
-                    { open: this.state.drawerOpen, style: styles.drawer },
+                    {
+                        docked: false,
+                        open: this.state.drawerOpen,
+                        containerStyle: styles.drawer.container,
+                        onRequestChange: function onRequestChange(drawerOpen) {
+                            return _this2.setState({ drawerOpen: drawerOpen });
+                        },
+                        overlayStyle: styles.drawer.overlay
+                    },
                     _sites2.default.map(function (_ref) {
                         var title = _ref.title,
                             url = _ref.url;

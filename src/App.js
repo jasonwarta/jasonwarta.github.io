@@ -7,8 +7,13 @@ import sites from './sites.js';
 
 const styles = {
     drawer: {
-        width: "auto"
-    }
+        container: {
+            top: "64px",
+        },
+        overlay: {
+            top: "64px",
+        },
+    },
 }
 export default class App extends React.Component {
     constructor(props) {
@@ -24,11 +29,16 @@ export default class App extends React.Component {
     }
 
     changeUrl(url) {
-        this.setState({url: url, drawerOpen: false});
+        this.closeDrawer();
+        this.setState({url: url});
     }
 
     toggleDrawer() {
         this.setState({drawerOpen:!this.state.drawerOpen});
+    }
+
+    closeDrawer() {
+        this.setState({ drawerOpen: false });
     }
 
     render() {
@@ -39,7 +49,13 @@ export default class App extends React.Component {
                 iconClassNameRight="muidocs-icon-navigation-expand-more" 
                 onLeftIconButtonClick={this.toggleDrawer}
             />
-            <Drawer open={this.state.drawerOpen} style={styles.drawer}>
+            <Drawer
+                docked={false}
+                open={this.state.drawerOpen}
+                containerStyle={styles.drawer.container}
+                onRequestChange={(drawerOpen) => this.setState({drawerOpen})}
+                overlayStyle={styles.drawer.overlay}
+            >
                 {
                     sites.map(({title,url}) => <MenuItem key={title} onClick={() => this.changeUrl(url)}>{title}</MenuItem>)
                 }
