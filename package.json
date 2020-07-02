@@ -1,33 +1,41 @@
 {
   "name": "jasonwarta.github.io",
-  "homepage": "https://jasonwarta.github.io",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:jasonwarta/jasonwarta.github.io.git",
-  "author": "Jason Warta <jasonwarta@gmail.com>",
-  "license": "MIT",
+  "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "watch": "npx webpack ",
-    "deploy": "npx gh-pages -d dist",
-    "start-dev": "webpack-dev-server"
-  },
   "dependencies": {
-    "material-ui": "^0.20.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "typescript": "~3.7.2"
   },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.11",
-    "gh-pages": "^1.1.0",
-    "html-webpack-plugin": "^3.0.7",
-    "style-loader": "^0.21.0",
-    "webpack": "^4.8.1",
-    "webpack-cli": "^2.1.3",
-    "webpack-dev-server": "^3.1.4"
-  }
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {}
 }
